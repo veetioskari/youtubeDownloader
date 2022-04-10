@@ -1,5 +1,6 @@
 from pydoc import text
 import string
+import tkinter as tk
 from tkinter import *
 from pytube import YouTube
 
@@ -8,6 +9,7 @@ root.geometry('500x300')
 root.resizable(0,0)
 root.config(bg='black')
 root.title('Youtube Downloader By: Veeti Bark')
+root.iconphoto(False, tk.PhotoImage(file='content/logo.png'))
 
 
 Label(root, text='Youtube Video Downloader', font='arial 20 bold', fg='white', bg='black').pack()
@@ -47,6 +49,6 @@ def downloadMP3():
 
 
 Button(bg='white', fg='black', command=downloadMP4, text='Start video download', activebackground="red").place(x=188, y=100)
-Button(bg='white', fg='black', command=downloadMP3, text='Start audio download', activebackground="red").place(x=187, y=125)
+Button(bg='white', fg='black', command=downloadMP3, text='Start audio download', activebackground="red").place(x=187, y=130)
 
 root.mainloop()
