@@ -1,5 +1,6 @@
 from pydoc import text
 import string
+import tkinter as tk
 from tkinter import *
 from pytube import YouTube
 
@@ -8,6 +9,7 @@ root.geometry('500x300')
 root.resizable(0,0)
 root.config(bg='black')
 root.title('Youtube Downloader By: Veeti Bark')
+root.iconphoto(False, tk.PhotoImage(file='content/logo.png'))
 
 
 Label(root, text='Youtube Video Downloader', font='arial 20 bold', fg='white', bg='black').pack()
@@ -30,6 +32,23 @@ def downloadMP4():
     except:
         Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
 
-Button(bg='white', fg='black', command=downloadMP4, text='Start download', activebackground="red").place(x=200, y=100)
+def downloadMP3():
+    try:
+        url = YouTube(str(link.get()))
+    except:
+        Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
+    try:
+        audio = url.streams.filter(only_audio=True, file_extension='mp4').first()
+    except:
+        Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
+    try:
+        audio.download('./downloads')
+        Label(root, text='Audio downloaded succesfully!', font='Arial 10', fg='white', bg='green').place(x=160, y=150)
+    except:
+        Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
+
+
+Button(bg='white', fg='black', command=downloadMP4, text='Start video download', activebackground="red").place(x=188, y=100)
+Button(bg='white', fg='black', command=downloadMP3, text='Start audio download', activebackground="red").place(x=187, y=130)
 
 root.mainloop()
