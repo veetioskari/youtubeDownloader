@@ -25,7 +25,7 @@ def downloadMP4():
         Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
     video = url.streams.first()
     try:
-        video.download('./downloadedVideos')
+        video.download('./downloads')
         Label(root, text='Video downloaded succesfully!', font='Arial 10', fg='white', bg='green').place(x=160, y=150)
     except:
         Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
