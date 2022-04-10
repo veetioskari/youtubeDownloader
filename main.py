@@ -9,7 +9,6 @@ root.geometry('500x300')
 root.resizable(0,0)
 root.config(bg='black')
 root.title('Youtube Downloader By: Veeti Bark')
-root.iconphoto(False, tk.PhotoImage(file='content/logo.png'))
 
 
 Label(root, text='Youtube Video Downloader', font='arial 20 bold', fg='white', bg='black').pack()
