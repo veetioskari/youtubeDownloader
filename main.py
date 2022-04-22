@@ -23,19 +23,19 @@ def downloadMP4():
     try:
         url = YouTube(str(link.get()))
     except:
-        Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
+        Label(root, text='There was an error with the link!', font='Arial 10', fg='white', bg='red').place(x=155, y=150)
     video = url.streams.first()
     try:
         video.download('./downloads')
         Label(root, text='Video downloaded succesfully!', font='Arial 10', fg='white', bg='green').place(x=160, y=150)
     except:
-        Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
+        Label(root, text='There was an error with download!', font='Arial 10', fg='white', bg='red').place(x=150, y=150)
 
 def downloadMP3():
     try:
         url = YouTube(str(link.get()))
     except:
-        Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
+        Label(root, text='There was an error with the link!', font='Arial 10', fg='white', bg='red').place(x=155, y=150)
     try:
         audio = url.streams.filter(only_audio=True, file_extension='mp4').first()
     except:
@@ -44,7 +44,7 @@ def downloadMP3():
         audio.download('./downloads')
         Label(root, text='Audio downloaded succesfully!', font='Arial 10', fg='white', bg='green').place(x=160, y=150)
     except:
-        Label(root, text='There was an error!', font='Arial 10', fg='white', bg='red').place(x=190, y=150)
+        Label(root, text='There was an error with download!', font='Arial 10', fg='white', bg='red').place(x=150, y=150)
 
 
 Button(bg='white', fg='black', command=downloadMP4, text='Start video download', activebackground="red").place(x=188, y=100)
